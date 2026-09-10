@@ -1,132 +1,215 @@
 # Virelion-VB-101
 
-**VB-101 - Myocardial Regeneration Gene Therapy Vector Discovery**
+**VB-101 — Myocardial Regeneration Gene Therapy**
 
-VB-101 is a discovery-stage Virelion Biotech program focused on the **computational identification and prioritization of candidate molecular regulators for myocardial regeneration and repair**. The repository is intended to organize a reproducible discovery workflow that integrates publicly available molecular evidence and produces a small, defensible set of candidates for subsequent experimental evaluation.
+VB-101 is a future Virelion Biotech **myocardial regeneration gene therapy** program. This repository houses the program's initial **discovery and target-prioritization phase**: integrating publicly available multi-omic and biological evidence to identify candidate regulators of myocardial regeneration, narrow the candidate space, and ultimately nominate **1–3 prioritized targets for physical laboratory testing**.
 
-> **Research status:** This repository describes and implements a discovery framework. It does **not** contain evidence that a candidate gene, vector, payload, or intervention has regenerated myocardium in vivo or in vitro. Computational prioritization is hypothesis generation, not experimental validation.
+> **Research status:** Discovery-stage program. This repository documents computational and literature-based hypothesis generation. It does **not** claim that any candidate has regenerated myocardium, demonstrated therapeutic efficacy, or been experimentally validated by Virelion.
 
-## What it contains
+## What VB-101 is
 
-- A structured discovery workflow for myocardial-regeneration target identification.
-- Configuration for dataset inclusion, quality control, analysis, scoring, and prioritization.
-- Candidate evidence schemas designed to keep biological evidence and computational scores traceable.
-- Separate locations for raw references, processed inputs, intermediate analyses, ranked candidates, and final reports.
-- Test scaffolding for the analysis package.
-- A documentation layer for the scientific rationale, decision rules, and reproducibility record.
+VB-101 is a **research program, not a standalone software tool**.
 
-The intended discovery flow is:
+The central discovery question is:
+
+**Which molecular regulators have sufficiently strong, convergent, and biologically plausible evidence to justify progression from computational discovery into experimental investigation for myocardial regeneration?**
+
+The discovery phase is designed to reduce a large candidate space to a small, defensible set of targets that can subsequently be tested in physical laboratory models.
+
+## Discovery objectives
+
+The initial VB-101 program aims to:
+
+1. Define molecular features associated with myocardial regenerative states.
+2. Integrate publicly available multi-omic and transcriptomic evidence relevant to cardiac injury and regeneration.
+3. Identify candidate molecular regulators with reproducible evidence across datasets and biological contexts.
+4. Evaluate candidates using explicit biological and translational prioritization criteria.
+5. Narrow the candidate space to **1–3 leading targets**.
+6. Produce a documented rationale for progressing those targets into future laboratory testing.
+
+The discovery phase generates **testable hypotheses**. It does not establish therapeutic efficacy or causality.
+
+## Discovery framework
 
 ```text
 Public multi-omic evidence
-        |
-        v
-Data curation + QC
-        |
-        v
-Differential / state-associated signals
-        |
-        v
-Regulatory and pathway evidence
-        |
-        v
-Candidate generation
-        |
-        v
-Evidence integration + prioritization
-        |
-        v
-Shortlist of candidates for independent experimental testing
+        ↓
+Data curation + biological QC
+        ↓
+Regenerative-state / injury-associated signal identification
+        ↓
+Candidate regulator generation
+        ↓
+Cross-dataset evidence integration
+        ↓
+Mechanistic + translational assessment
+        ↓
+Candidate prioritization
+        ↓
+1–3 prioritized targets
+        ↓
+Future physical laboratory testing
 ```
 
-The exact analytical methods should remain configurable as the evidence base and validation strategy mature.
+The exact analytical methods and evidence weights should remain versioned and transparent as the program develops.
 
-## Installation
+## Evidence considered
 
-Python 3.10+ is required.
+Depending on availability and scientific relevance, VB-101 may incorporate:
 
-```bash
-pip install -e .
-```
+- Single-cell and single-nucleus transcriptomics
+- Bulk transcriptomics
+- Epigenomic and chromatin-accessibility data
+- Proteomic evidence
+- Perturbation datasets
+- Cardiac injury and regeneration models
+- Developmental and maturation datasets
+- Human cardiac disease datasets
+- Published mechanistic evidence
+- Regulatory-network and pathway information
 
-For development and testing:
+A candidate should not be considered strongly supported solely because it appears in a single dataset, pathway, or publication.
 
-```bash
-pip install -e '.[dev,analysis]'
-pytest
-```
+## Candidate prioritization
 
-Notebook dependencies are optional:
+Candidates are evaluated across multiple dimensions rather than by a single statistical score:
 
-```bash
-pip install -e '.[notebook]'
-```
+| Dimension | Question |
+|---|---|
+| Regenerative association | Is the candidate associated with a regenerative biological state? |
+| Reproducibility | Is the signal supported across independent datasets or contexts? |
+| Biological plausibility | Is there a credible mechanism connecting the candidate to myocardial repair/regeneration? |
+| Cell-type relevance | Is the candidate relevant to cardiac cell populations involved in the proposed mechanism? |
+| Regulatory importance | Could the candidate plausibly act as a regulator rather than merely reflect a downstream state? |
+| Human relevance | Is there evidence connecting the candidate to human cardiac biology or disease? |
+| Therapeutic tractability | Could the candidate plausibly be manipulated in a future therapeutic strategy? |
+| Experimental testability | Can the hypothesis be reasonably evaluated in downstream laboratory studies? |
+| Evidence quality | How strong, direct, and independently supported is the evidence? |
 
-## Usage
+Final prioritization should remain traceable to the underlying evidence and assumptions.
 
-The repository currently provides the project skeleton and command-line entry point. The analysis stages will be implemented incrementally rather than represented as completed biological results.
+## Inputs
 
-Inspect the CLI:
+The discovery phase may use:
 
-```bash
-vb101 --help
-```
+- Publicly available multi-omic datasets
+- Curated cardiac injury and regeneration datasets
+- Published literature
+- Regulatory and pathway databases
+- Gene and protein annotation resources
+- Experimental evidence reported in the literature
+- Metadata describing species, tissue, condition, injury model, time point, and cell type
 
-Run the planned discovery pipeline once implemented:
+Dataset inclusion and exclusion decisions should be documented rather than silently applied.
 
-```bash
-vb101 run --config configs/discovery.yaml
-```
+## Intended outputs
 
-Candidate records should ultimately be represented with explicit provenance and evidence fields rather than manually maintained rankings.
+The discovery phase is intended to produce:
 
-## Inputs and outputs
+- Curated evidence sets
+- Dataset and metadata records
+- Candidate regulator lists
+- Candidate-level evidence summaries
+- Cross-dataset analyses
+- Mechanistic hypotheses
+- Candidate prioritization results
+- A final shortlist of approximately **1–3 lead targets**
+- A documented rationale for transition to downstream experimental testing
 
-**Inputs:** curated molecular datasets, study/sample metadata, gene identifiers, optional regulatory/pathway evidence, analysis configuration, inclusion/exclusion decisions, and provenance records.
+The final shortlist is a **research hypothesis**, not a validated therapeutic target list.
 
-**Outputs:** quality-control summaries, processed analysis tables, candidate evidence records, prioritization scores, ranked candidate tables, reproducibility metadata, and reports suitable for selecting candidates for downstream experimental testing.
+## Transition to laboratory testing
 
-All biological observations must remain traceable to their source dataset and study/sample identifiers. Derived scores must not be presented as measured biological effects.
+The computational discovery phase is intended to terminate at a defined decision point: selection of a small number of candidates whose evidence is strong enough to justify physical laboratory investigation.
+
+Future experimental studies would be required to determine whether prioritized candidates actually produce the predicted biological effects and whether those effects are reproducible, mechanistically meaningful, and therapeutically relevant.
+
+No experimental validation should be implied unless it is explicitly documented in a future repository release.
 
 ## Validation
 
-Software validation will cover parsing, schema validation, deterministic transformations, scoring behavior, and reproducibility of analysis runs.
+Validation of the discovery program should address both computational robustness and biological credibility.
 
-Scientific validation requires more than software tests. Candidate prioritization should be evaluated using appropriate held-out evidence, cross-study robustness, sensitivity to scoring assumptions, independent datasets, and ultimately experimental testing. A high computational score does not establish efficacy, safety, mechanism, or therapeutic benefit.
+### Computational validation
+
+- Correct dataset and sample inclusion
+- Metadata integrity
+- Appropriate quality control
+- Control of technical and batch effects
+- Reproducibility of preprocessing and analysis
+- Sensitivity to analytical and prioritization assumptions
+- Independent dataset testing where available
+
+### Scientific validation
+
+- Cross-study consistency
+- Concordance across biological evidence layers
+- Consistency with established myocardial biology
+- Independent literature support
+- Mechanistic plausibility
+- Experimental testing of the final prioritized candidates
+
+A computational association or prioritization result does not establish causality, therapeutic efficacy, safety, or clinical benefit.
 
 ## Limitations
 
-- Public molecular datasets can contain batch effects, incomplete metadata, study-specific artifacts, and heterogeneous biological contexts.
+- Public datasets may contain batch effects, incomplete metadata, technical artifacts, and heterogeneous experimental designs.
+- Animal and developmental findings may not translate directly to the human myocardium.
+- Multi-omic association does not establish causal regulation.
+- Regeneration-associated expression does not necessarily identify a therapeutic driver.
 - Candidate rankings depend on dataset selection, preprocessing, evidence weighting, and model assumptions.
-- Correlation, differential expression, network centrality, or computational prediction does not establish causality.
-- A computationally prioritized target is not a validated gene-therapy payload or vector design.
-- Any future vector/payload engineering work requires independent biological, pharmacological, delivery, and safety assessment.
+- Computational prioritization cannot substitute for physical experimental validation.
+- A prioritized molecular regulator is not automatically a validated gene-therapy payload, vector, or therapeutic intervention.
+- Any future therapeutic design requires independent assessment of delivery, pharmacology, efficacy, and safety.
 
-## Reproducibility and provenance
+## Development status
 
-Each analysis stage should record dataset identifiers, source links, software versions, configuration, random seeds where applicable, and generated artifact identifiers. Large raw datasets should not be committed directly to the repository unless licensing and size constraints explicitly permit it.
+VB-101 should maintain a strict distinction between:
 
-Recommended project organization:
+**Established evidence** — Findings supported by existing experimental literature or reproducible public datasets.
+
+**Computational hypotheses** — Candidate associations and mechanistic predictions generated during the VB-101 discovery process.
+
+**Future experimental questions** — Hypotheses requiring physical laboratory testing.
+
+This distinction is maintained throughout the repository.
+
+## Repository structure
 
 ```text
 Virelion-VB-101/
-├── configs/                 # Versioned analysis configuration
-├── data/
-│   ├── external/            # User-downloaded/reference data; not tracked by default
-│   └── processed/           # Derived, reproducible analysis inputs/outputs
-├── docs/                    # Scientific plan and decision framework
-├── notebooks/               # Exploratory analysis; production logic belongs in src/
-├── references/              # Dataset and literature provenance records
-├── reports/                 # Generated summaries and prioritization reports
-├── schemas/                 # Machine-readable candidate/evidence contracts
-├── scripts/                 # Reproducible command-line helpers
-├── src/virelion_vb101/      # Python package
-└── tests/                   # Software and contract tests
+├── README.md
+├── VB-101 Computational Discovery and Prioritization (1).pdf
+├── candidates/              # Candidate records and prioritization evidence
+├── data/                    # Dataset provenance and data-management documentation
+├── docs/                    # Scientific rationale and discovery framework
+├── references/              # Literature and dataset provenance
+└── results/                 # Discovery outputs and release artifacts
 ```
+
+Large third-party datasets should not be committed directly unless their licensing and redistribution terms permit this.
+
+## Reproducibility and provenance
+
+Each discovery result should be traceable to:
+
+- Source dataset or publication
+- Dataset/accession identifier where applicable
+- Study and sample metadata
+- Processing and filtering criteria
+- Analysis method
+- Candidate-selection criteria
+- Prioritization framework version
+- Date of analysis
+- Relevant software/environment information
+
+Changes to candidate rankings should be attributable to a documented change in evidence, methodology, or prioritization criteria.
 
 ## Relationship to Virelion
 
-VB-101 is a biological discovery program within the wider Virelion research stack. Its outputs are intended to be machine-readable and auditable so that candidate evidence can later interface with Virelion computational infrastructure where appropriate.
+VB-101 is a **therapeutic discovery program** within the wider Virelion research ecosystem. Computational infrastructure may support the program, but VB-101 itself is defined by its biological objective: identifying and prioritizing candidate regulators for future myocardial-regeneration gene-therapy development.
+
+The program's discovery outputs may later provide structured evidence for integration with other Virelion research infrastructure.
 
 ## License
 
