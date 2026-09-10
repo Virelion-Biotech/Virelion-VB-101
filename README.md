@@ -2,177 +2,103 @@
 
 **VB-101 — Myocardial Regeneration Gene Therapy**
 
-VB-101 is a future Virelion Biotech **myocardial regeneration gene therapy** program. This repository houses the program's initial **discovery and target-prioritization phase**: integrating publicly available multi-omic and biological evidence to identify candidate regulators of myocardial regeneration, narrow the candidate space, and ultimately nominate **1–3 prioritized targets for physical laboratory testing**.
+VB-101 is a future Virelion Biotech program focused on the development of a gene-therapy approach to myocardial regeneration. The project begins with a discovery phase: bringing together multi-omic data and published biological evidence to identify molecular regulators that may have a meaningful role in cardiac regeneration and repair.
 
-> **Research status:** Discovery-stage program. This repository documents computational and literature-based hypothesis generation. It does **not** claim that any candidate has regenerated myocardium, demonstrated therapeutic efficacy, or been experimentally validated by Virelion.
+The purpose of this repository is to document that discovery process, the evidence behind candidate selection, and the reasoning used to narrow a broad field of possibilities to **1–3 targets for subsequent physical laboratory testing**.
 
-## What VB-101 is
+VB-101 is currently a **discovery-stage project**. The work described here should be understood as hypothesis generation and target prioritization. A computationally interesting candidate is not, by itself, evidence that the candidate can regenerate myocardium or that it will make an effective or safe gene-therapy target.
 
-VB-101 is a **research program, not a standalone software tool**.
+## The scientific question
 
-The central discovery question is:
+Myocardial regeneration is influenced by processes that span cardiomyocytes, vascular cells, fibroblasts, immune cells, extracellular matrix, metabolism, and tissue-level signaling. A useful therapeutic target therefore needs to make biological sense in the context of regeneration rather than simply appear differentially expressed after injury.
 
-**Which molecular regulators have sufficiently strong, convergent, and biologically plausible evidence to justify progression from computational discovery into experimental investigation for myocardial regeneration?**
+VB-101 is built around a straightforward question:
 
-The discovery phase is designed to reduce a large candidate space to a small, defensible set of targets that can subsequently be tested in physical laboratory models.
+> **Which molecular regulators have enough independent biological support to warrant experimental testing as potential drivers or enablers of myocardial regeneration?**
 
-## Discovery objectives
+The discovery phase is intended to answer that question as rigorously as possible before committing to laboratory work.
 
-The initial VB-101 program aims to:
+## Discovery approach
 
-1. Define molecular features associated with myocardial regenerative states.
-2. Integrate publicly available multi-omic and transcriptomic evidence relevant to cardiac injury and regeneration.
-3. Identify candidate molecular regulators with reproducible evidence across datasets and biological contexts.
-4. Evaluate candidates using explicit biological and translational prioritization criteria.
-5. Narrow the candidate space to **1–3 leading targets**.
-6. Produce a documented rationale for progressing those targets into future laboratory testing.
+The project brings together evidence from multiple sources and biological levels. Depending on what is available and sufficiently well characterized, this may include single-cell and single-nucleus transcriptomics, bulk transcriptomics, epigenomic data, proteomic evidence, perturbation studies, cardiac injury and regeneration models, developmental datasets, human cardiac disease data, and mechanistic findings from the literature.
 
-The discovery phase generates **testable hypotheses**. It does not establish therapeutic efficacy or causality.
-
-## Discovery framework
+The overall progression is:
 
 ```text
-Public multi-omic evidence
-        ↓
-Data curation + biological QC
-        ↓
-Regenerative-state / injury-associated signal identification
-        ↓
-Candidate regulator generation
-        ↓
-Cross-dataset evidence integration
-        ↓
-Mechanistic + translational assessment
-        ↓
-Candidate prioritization
-        ↓
-1–3 prioritized targets
-        ↓
-Future physical laboratory testing
+Multi-omic and published evidence
+                ↓
+       Data curation and QC
+                ↓
+ Identification of regeneration-associated signals
+                ↓
+       Candidate regulator discovery
+                ↓
+ Cross-dataset and cross-context comparison
+                ↓
+ Biological and mechanistic assessment
+                ↓
+        Candidate prioritization
+                ↓
+        1–3 lead candidates
+                ↓
+      Future laboratory testing
 ```
 
-The exact analytical methods and evidence weights should remain versioned and transparent as the program develops.
+The goal is not to produce a long list of genes. It is to arrive at a small number of candidates for which the biological case is strong enough to justify spending experimental resources.
 
-## Evidence considered
+## What makes a strong candidate?
 
-Depending on availability and scientific relevance, VB-101 may incorporate:
+A candidate will be considered in the context of several questions rather than on the basis of a single score.
 
-- Single-cell and single-nucleus transcriptomics
-- Bulk transcriptomics
-- Epigenomic and chromatin-accessibility data
-- Proteomic evidence
-- Perturbation datasets
-- Cardiac injury and regeneration models
-- Developmental and maturation datasets
-- Human cardiac disease datasets
-- Published mechanistic evidence
-- Regulatory-network and pathway information
+**Regenerative relevance.** Is the candidate associated with a biological state or process that is genuinely relevant to myocardial regeneration or repair?
 
-A candidate should not be considered strongly supported solely because it appears in a single dataset, pathway, or publication.
+**Reproducibility.** Does the signal appear consistently across independent studies, models, or data types?
 
-## Candidate prioritization
+**Cellular context.** In which cardiac or non-cardiac cell populations is the candidate active, and does that localization fit the proposed mechanism?
 
-Candidates are evaluated across multiple dimensions rather than by a single statistical score:
+**Regulatory importance.** Is there evidence that the candidate may influence a broader regenerative program, rather than simply reflecting a downstream consequence of injury?
 
-| Dimension | Question |
-|---|---|
-| Regenerative association | Is the candidate associated with a regenerative biological state? |
-| Reproducibility | Is the signal supported across independent datasets or contexts? |
-| Biological plausibility | Is there a credible mechanism connecting the candidate to myocardial repair/regeneration? |
-| Cell-type relevance | Is the candidate relevant to cardiac cell populations involved in the proposed mechanism? |
-| Regulatory importance | Could the candidate plausibly act as a regulator rather than merely reflect a downstream state? |
-| Human relevance | Is there evidence connecting the candidate to human cardiac biology or disease? |
-| Therapeutic tractability | Could the candidate plausibly be manipulated in a future therapeutic strategy? |
-| Experimental testability | Can the hypothesis be reasonably evaluated in downstream laboratory studies? |
-| Evidence quality | How strong, direct, and independently supported is the evidence? |
+**Mechanistic support.** Is there a credible biological explanation for how altering the candidate could affect regeneration?
 
-Final prioritization should remain traceable to the underlying evidence and assumptions.
+**Human relevance.** Is there evidence connecting the candidate to human cardiac biology, disease, or a conserved biological process?
 
-## Inputs
+**Experimental tractability.** Can the hypothesis be tested realistically in an appropriate laboratory model?
 
-The discovery phase may use:
+**Therapeutic potential.** Could the candidate eventually support a viable gene-therapy strategy, while recognizing that vector design, delivery, dosing, safety, and tissue specificity are separate challenges?
 
-- Publicly available multi-omic datasets
-- Curated cardiac injury and regeneration datasets
-- Published literature
-- Regulatory and pathway databases
-- Gene and protein annotation resources
-- Experimental evidence reported in the literature
-- Metadata describing species, tissue, condition, injury model, time point, and cell type
+A candidate can therefore rank highly for biological reasons while still being rejected because it is poorly supported, difficult to test, or unlikely to translate.
 
-Dataset inclusion and exclusion decisions should be documented rather than silently applied.
+## Intended outcome of the discovery phase
 
-## Intended outputs
+The immediate outcome of VB-101 is a documented shortlist of **1–3 prioritized molecular targets**.
 
-The discovery phase is intended to produce:
+For each lead, the repository is intended to capture the evidence that supports it, the biological reasoning behind its selection, the major uncertainties, and the experiments that would be needed to determine whether the computational hypothesis holds up in a physical model.
 
-- Curated evidence sets
-- Dataset and metadata records
-- Candidate regulator lists
-- Candidate-level evidence summaries
-- Cross-dataset analyses
-- Mechanistic hypotheses
-- Candidate prioritization results
-- A final shortlist of approximately **1–3 lead targets**
-- A documented rationale for transition to downstream experimental testing
+Those candidates are not considered validated therapeutic targets until they have been tested experimentally.
 
-The final shortlist is a **research hypothesis**, not a validated therapeutic target list.
+## Transition to laboratory research
 
-## Transition to laboratory testing
+The discovery work is intended to provide a rational starting point for subsequent laboratory studies. Experimental work would be needed to establish whether changing a prioritized target produces the predicted effect on cardiomyocyte behavior, tissue repair, regeneration, or related phenotypes.
 
-The computational discovery phase is intended to terminate at a defined decision point: selection of a small number of candidates whose evidence is strong enough to justify physical laboratory investigation.
+A positive computational result should therefore be viewed as a reason to **test a hypothesis**, not as evidence that the therapy works.
 
-Future experimental studies would be required to determine whether prioritized candidates actually produce the predicted biological effects and whether those effects are reproducible, mechanistically meaningful, and therapeutically relevant.
+Future laboratory development would also need to address issues that cannot be resolved by multi-omic analysis alone, including delivery, expression control, dose, durability, off-target effects, tissue specificity, immunological effects, and overall safety.
 
-No experimental validation should be implied unless it is explicitly documented in a future repository release.
+## Evidence and reproducibility
 
-## Validation
+Every important conclusion should be traceable to its underlying data or publication. Dataset identifiers, study metadata, processing decisions, inclusion and exclusion criteria, analysis methods, and candidate-ranking decisions should be recorded so that the discovery process can be revisited as new evidence becomes available.
 
-Validation of the discovery program should address both computational robustness and biological credibility.
+Third-party datasets should remain linked to their original repositories rather than being redistributed here when licensing or practical considerations make that inappropriate.
 
-### Computational validation
+## Current status
 
-- Correct dataset and sample inclusion
-- Metadata integrity
-- Appropriate quality control
-- Control of technical and batch effects
-- Reproducibility of preprocessing and analysis
-- Sensitivity to analytical and prioritization assumptions
-- Independent dataset testing where available
+VB-101 is a **future therapeutic program in the discovery stage**. This repository should distinguish clearly between:
 
-### Scientific validation
+- findings already supported by published evidence;
+- associations identified through analysis of public datasets; and
+- biological hypotheses that still require experimental testing.
 
-- Cross-study consistency
-- Concordance across biological evidence layers
-- Consistency with established myocardial biology
-- Independent literature support
-- Mechanistic plausibility
-- Experimental testing of the final prioritized candidates
-
-A computational association or prioritization result does not establish causality, therapeutic efficacy, safety, or clinical benefit.
-
-## Limitations
-
-- Public datasets may contain batch effects, incomplete metadata, technical artifacts, and heterogeneous experimental designs.
-- Animal and developmental findings may not translate directly to the human myocardium.
-- Multi-omic association does not establish causal regulation.
-- Regeneration-associated expression does not necessarily identify a therapeutic driver.
-- Candidate rankings depend on dataset selection, preprocessing, evidence weighting, and model assumptions.
-- Computational prioritization cannot substitute for physical experimental validation.
-- A prioritized molecular regulator is not automatically a validated gene-therapy payload, vector, or therapeutic intervention.
-- Any future therapeutic design requires independent assessment of delivery, pharmacology, efficacy, and safety.
-
-## Development status
-
-VB-101 should maintain a strict distinction between:
-
-**Established evidence** — Findings supported by existing experimental literature or reproducible public datasets.
-
-**Computational hypotheses** — Candidate associations and mechanistic predictions generated during the VB-101 discovery process.
-
-**Future experimental questions** — Hypotheses requiring physical laboratory testing.
-
-This distinction is maintained throughout the repository.
+No claim of myocardial regeneration, therapeutic efficacy, or safety should be inferred from discovery-stage analyses alone.
 
 ## Repository structure
 
@@ -180,36 +106,18 @@ This distinction is maintained throughout the repository.
 Virelion-VB-101/
 ├── README.md
 ├── VB-101 Computational Discovery and Prioritization (1).pdf
-├── candidates/              # Candidate records and prioritization evidence
-├── data/                    # Dataset provenance and data-management documentation
-├── docs/                    # Scientific rationale and discovery framework
-├── references/              # Literature and dataset provenance
-└── results/                 # Discovery outputs and release artifacts
+├── candidates/       # Candidate summaries and supporting evidence
+├── data/             # Dataset information and provenance
+├── docs/             # Scientific background and discovery rationale
+├── references/       # Literature and source records
+└── results/          # Discovery analyses and released results
 ```
 
-Large third-party datasets should not be committed directly unless their licensing and redistribution terms permit this.
-
-## Reproducibility and provenance
-
-Each discovery result should be traceable to:
-
-- Source dataset or publication
-- Dataset/accession identifier where applicable
-- Study and sample metadata
-- Processing and filtering criteria
-- Analysis method
-- Candidate-selection criteria
-- Prioritization framework version
-- Date of analysis
-- Relevant software/environment information
-
-Changes to candidate rankings should be attributable to a documented change in evidence, methodology, or prioritization criteria.
+The repository is expected to grow alongside the project. The structure is deliberately centered on the scientific program and its evidence base rather than on a software product.
 
 ## Relationship to Virelion
 
-VB-101 is a **therapeutic discovery program** within the wider Virelion research ecosystem. Computational infrastructure may support the program, but VB-101 itself is defined by its biological objective: identifying and prioritizing candidate regulators for future myocardial-regeneration gene-therapy development.
-
-The program's discovery outputs may later provide structured evidence for integration with other Virelion research infrastructure.
+VB-101 is one of Virelion Biotech's therapeutic research programs. Its purpose is to move from a broad biological question—how to promote myocardial regeneration—to a small number of experimentally testable molecular hypotheses that could eventually form the basis of a gene-therapy development program.
 
 ## License
 
