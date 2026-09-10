@@ -1,0 +1,37 @@
+project:
+  id: VB-101
+  name: Myocardial Regeneration Gene Therapy Vector Discovery
+  status: discovery
+
+input:
+  datasets: []
+  require_provenance: true
+  require_subject_level_metadata: true
+
+preprocessing:
+  normalization: configurable
+  batch_correction: configurable
+  missing_metadata_policy: exclude_and_report
+
+analysis:
+  differential_signal: pending
+  network_analysis: pending
+  regulatory_evidence: pending
+  pathway_evidence: pending
+  candidate_generation: pending
+
+prioritization:
+  method: evidence_weighted
+  shortlist_size: 3
+  require_independent_support: true
+  sensitivity_analysis: true
+
+validation:
+  held_out_analysis: required
+  cross_study_robustness: required
+  experimental_validation: required_for_biological_claims
+
+outputs:
+  report_dir: reports/
+  candidate_table: reports/candidate_prioritization.csv
+  run_manifest: reports/run_manifest.json
