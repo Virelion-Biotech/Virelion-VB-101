@@ -8,6 +8,21 @@ The purpose of this repository is to document that discovery process, the eviden
 
 VB-101 is currently a **discovery-stage project**. The work described here should be understood as hypothesis generation and target prioritization. A computationally interesting candidate is not, by itself, evidence that the candidate can regenerate myocardium or that it will make an effective or safe gene-therapy target.
 
+
+<!-- VALIDATION_PRODUCT_STATUS:BEGIN -->
+## Validation and product completion status
+
+**Reviewed 2026-10-14; implementation base `678fb3251d3b`.** **Status: Discovery-stage therapeutic program; target efficacy/safety unestablished.** This is an evidence-backed scope assessment, not a percentage-complete estimate or a declaration that the product is finished.
+
+| Area | Current evidence / remaining gate |
+|---|---|
+| Software / operational checks | Repository implementation/planning evidence only; no fresh runtime qualification was performed in this documentation audit. |
+| Scientific or domain evidence | This repository documents target discovery and prioritization. A computational candidate or literature association is not evidence of myocardial regeneration or an effective therapy. |
+| Remaining for the declared product scope | Lock datasets/biological units and reproducible candidate-ranking evidence; independently replicate prioritized associations and assess causal plausibility; complete appropriately reviewed experimental efficacy/safety and translational milestones before therapeutic claims. |
+
+Evidence and limits: [repository report](README.md). The [organization status index](https://github.com/Virelion-Biotech/Virelion-HeartTwin/blob/main/docs/STACK_VALIDATION_STATUS.md) separates software, numerical, data-readiness and empirical qualification. Code/schema execution or a completed download is not a substitute for endpoint-specific validation.
+<!-- VALIDATION_PRODUCT_STATUS:END -->
+
 ## The scientific question
 
 Myocardial regeneration is influenced by processes that span cardiomyocytes, vascular cells, fibroblasts, immune cells, extracellular matrix, metabolism, and tissue-level signaling. A useful therapeutic target therefore needs to make biological sense in the context of regeneration rather than simply appear differentially expressed after injury.
