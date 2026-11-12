@@ -136,4 +136,4 @@ VB-101 is one of Virelion Biotech's therapeutic research programs. Its purpose i
 
 ## License
 
-GNU General Public License v3.0 or later (GPL-3.0-or-later). See `LICENSE`.
+Copyright (c) 2026 Virelion Biotech. GNU General Public License v3.0 or later (GPL-3.0-or-later). See `LICENSE` and `NOTICE`.
